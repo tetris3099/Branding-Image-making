@@ -110,7 +110,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (document.body.hasAttribute('page-about')) {
         // scrolling from the about page
         localStorage.setItem('scrollWork', `${target.dataset.scroll}`);
-        window.location.assign('https://tetris3099.github.io/index.html');
+        window.location.assign('https://tetris3099.github.io/Branding-Image-making/index.html');
       }
       scrollPage({ button: target });
     }
@@ -235,4 +235,5 @@ window.addEventListener('DOMContentLoaded', () => {
     animationBox.classList.add('active');
   }
 });
+
 
