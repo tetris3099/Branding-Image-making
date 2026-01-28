@@ -1,0 +1,143 @@
+@import './fonts.scss';
+@import './mixin.scss';
+
+:root {
+  // fonts
+  --base-font: 'Epilogue', sans-serif;
+  --font-secondary: 'Mulish', sans-serif;
+
+  // fonts weight
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+
+  // colors
+  --text-color: #2d2d2d;
+  --about-hero-bg: #f9e6f0;
+
+  // animations
+  // def = default
+  --animation-def: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// ALL
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--base-font);
+  font-weight: var(--fw-regular);
+  color: var(--text-color);
+}
+
+body.open {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    color var(--animation-def),
+    background-color var(--animation-def);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  transition:
+    color var(--animation-def),
+    background-color var(--animation-def);
+}
+
+.container {
+  display: flex;
+  max-width: 375px;
+  padding: 0 30px;
+  margin: 0 auto;
+  background-color: var(--background-container);
+
+  @include mq(tablet) {
+    max-width: 1400px;
+  }
+
+  @include mq(desktop) {
+    padding: 0 100px;
+  }
+}
+
+.black-box {
+  background-color: rgba(0, 0, 0, 0.409);
+  transition:
+    opacity var(--animation-def),
+    visibility var(--animation-def),
+    pointer-events var(--animation-def),
+    transform var(--animation-def);
+}
+
+.title {
+  font-weight: var(--fw-semi-bold);
+  font-size: 32px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+@keyframes spinner-change {
+  0% {
+    fill: #fff;
+    transform: rotateZ(0deg);
+  }
+
+  20% {
+    fill: #ffdfff;
+    transform: rotateZ(72deg);
+  }
+
+  40% {
+    fill: #ffbeff;
+    transform: rotateZ(144deg);
+  }
+
+  60% {
+    fill: #ffdfff;
+    transform: rotateZ(216deg);
+  }
+
+  80% {
+    fill: #ffdfff;
+    transform: rotateZ(288deg);
+  }
+
+  100% {
+    fill: #fff;
+    transform: rotateZ(360deg);
+  }
+}

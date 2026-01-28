@@ -1,0 +1,93 @@
+@import './mixin.scss';
+
+// header
+.topbar .container {
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.topbar__logo {
+  font-weight: var(--fw-semi-bold);
+  font-size: 20px;
+  line-height: 150%;
+  padding: 25px 0;
+}
+
+.topbar__mobile-menu {
+  padding: 28px 0 29px 0;
+
+  @include mq(tablet) {
+    display: none;
+  }
+}
+
+.black-box.__navigation {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(100%, -50%);
+
+  @include mq(before-tablet) {
+    width: 100vw;
+    height: 100vh;
+    padding-left: 50%;
+  }
+
+  @include mq(tablet) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: visible;
+    position: static;
+
+    transform: translate(0, 0);
+    background-color: transparent;
+  }
+}
+
+.black-box.__navigation.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: visible;
+  transform: translate(-50%, -50%);
+}
+
+.close-mobile-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  @include mq(tablet) {
+    display: none;
+  }
+}
+
+.navigation {
+  @include mq(before-tablet) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 40px 30px 0 0;
+    background-color: #fff;
+  }
+}
+
+.navigation__item {
+  @include mq(before-tablet) {
+    text-align: right;
+  }
+}
+
+.navigation__item + .navigation__item {
+  @include mq(tablet) {
+    margin-left: 50px;
+  }
+}
+
+.navigation__button {
+  font-size: 17px;
+  line-height: 165%;
+  padding: 26px 0;
+}

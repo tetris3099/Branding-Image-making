@@ -1,0 +1,181 @@
+@import '../maincss/mixin.scss';
+
+// FOOTER
+.bottom-bar {
+  @include mq(tablet-only) {
+    padding: 0 30px;
+  }
+}
+
+.bottom-bar .container {
+  flex-direction: column;
+  gap: 80px;
+  max-width: 315px;
+  padding: 70px 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+
+  @include mq(tablet) {
+    flex-direction: row;
+    gap: 30px;
+    max-width: fit-content;
+  }
+
+  @include mq(desktop) {
+    display: grid;
+    grid-template-columns: minmax(360px, 360px) minmax(330px, 530px);
+    column-gap: 17.6%;
+    justify-content: space-between;
+    max-width: 1080px;
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+.bottom-bar__title {
+  line-height: 131%;
+}
+
+.bottom-bar__description {
+  font-size: 17px;
+  line-height: 159%;
+  margin: 40px 0 60px 0;
+  max-width: 360px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+}
+
+.social-link__item + .social-link__item {
+  margin-left: 13px;
+}
+
+.social-link__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+}
+
+// FEEDBACK
+.feedback-form {
+  position: relative;
+  max-width: 530px;
+
+  @include mq(tablet-only) {
+    width: 382px;
+  }
+}
+
+.feedback__animation {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 102%;
+  height: 102%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  background-color: #000000ab;
+  border-radius: 4px;
+  transition:
+    opacity var(--animation-def),
+    visibility var(--animation-def),
+    pointer-events var(--animation-def);
+}
+
+.feedback__animation.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: visible;
+}
+
+// SPINNER BLOCK
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: inherit;
+}
+
+.feedback__animation.active.ok .icon-wrapper.__spinner,
+.feedback__animation.active.err .icon-wrapper.__spinner,
+.feedback__animation.active .icon-wrapper.__ok,
+.feedback__animation.active .icon-wrapper.__err {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.feedback__animation.active.ok .icon-wrapper.__ok,
+.feedback__animation.active.err .icon-wrapper.__err {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: visible;
+}
+
+.icon-spinner,
+.icon-ok,
+.icon-err {
+  fill: currentColor;
+}
+
+.feedback__animation.active .icon-spinner {
+  animation-name: spinner-change;
+  animation-duration: 800ms;
+  animation-delay: 300ms;
+  animation-iteration-count: infinite;
+}
+//
+
+.feedback__field {
+  padding: 21px 30px;
+  width: 100%;
+  font-size: 17px;
+  line-height: 159%;
+  background-color: #f3f3f3;
+  outline: none;
+  border: none;
+}
+
+.feedback__field + .feedback__field {
+  margin-top: 20px;
+}
+
+.feedback__field:nth-child(3) {
+  height: 231px;
+  resize: none;
+}
+
+.feedback__field::placeholder {
+  font-family: var(--base-font);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 159%;
+  color: #2d2d2d;
+}
+
+.feedback__button {
+  font-weight: var(--fw-semi-bold);
+  font-size: 20px;
+  line-height: 150%;
+  padding: 25px 0;
+  width: 44.3%;
+  margin-top: 40px;
+  color: #fff;
+  background-color: var(--text-color);
+}

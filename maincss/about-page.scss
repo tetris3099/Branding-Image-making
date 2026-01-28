@@ -1,0 +1,79 @@
+@import './mixin.scss';
+
+.about-hero .container {
+  flex-direction: column;
+  gap: 78px;
+  padding: 120px 30px;
+  background-color: var(--about-hero-bg);
+
+  @include mq(tablet) {
+    flex-direction: row;
+    align-items: center;
+    gap: 70px;
+  }
+
+  @include mq(desktop) {
+    padding: 120px 250px;
+  }
+}
+
+.person,
+.bio-wrapper {
+  font-size: 17px;
+  line-height: 159%;
+}
+
+.person__img {
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.person__name,
+.bio {
+  display: block;
+  font-weight: var(--fw-bold);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.person__profile {
+  max-width: 195px;
+}
+
+.bio {
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.bio-deskription {
+  max-width: 515px;
+}
+
+// About description
+.about-description .container {
+  flex-direction: column;
+  padding: 120px 30px;
+  @include mq(desktop) {
+    padding: 120px 200px;
+  }
+}
+
+.about-description__title {
+  font-weight: var(--fw-medium);
+  font-size: 24px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  margin-bottom: 60px;
+}
+
+.about-description__text {
+  font-size: 16px;
+  line-height: 162%;
+  padding: 5px 0;
+}
+
+.about-description__text.__green-bg {
+  font-weight: var(--fw-semi-bold);
+  background-color: #009379;
+  color: #f6dce9;
+}

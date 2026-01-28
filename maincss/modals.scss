@@ -1,0 +1,58 @@
+@import './mixin.scss';
+
+.modal-contacts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.315);
+  transition: all 250ms linear;
+}
+
+.modal-contacts.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-contacts_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  padding: 45px 15px 20px 15px;
+  border-radius: 4%;
+  transform: translate(-50%, -50%);
+  background-color: aliceblue;
+  text-align: center;
+}
+
+.close-contacts {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.contact-link {
+  font-weight: var(--fw-bold);
+  padding: 10px 5px;
+  border-radius: 4px;
+
+}
+
+.contact-link + .contact-link {
+  margin-top: 15px;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  color: rgb(162, 41, 166);
+  background-color: rgba(133, 133, 133, 0.795);
+}
+
+.social-link.__modal-contacts {
+  justify-content: center;
+  margin-top: 30px;
+}
